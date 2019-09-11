@@ -1,6 +1,8 @@
 # Unity精简版双人井字棋
 
 > 视频链接：<https://www.bilibili.com/video/av67336462/>
+>
+> 博客链接：<https://liangwj45.github.io/2019/09/11/Unity3D精简版双人井字棋/>
 
 ## 一、简答题
 
@@ -171,7 +173,7 @@ public class NewBehaviourScript : MonoBehaviour {
 
 ![](./img/game.png)
 
-博客地址：
+博客地址：<https://liangwj45.github.io/2019/09/11/Unity3D精简版双人井字棋/>
 
 核心代码：
 
