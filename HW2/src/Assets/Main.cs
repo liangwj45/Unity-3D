@@ -14,7 +14,7 @@ public class Main :MonoBehaviour {
     }
 
     private void OnGUI() {
-        if (GUI.Button(new Rect(0, 650, 100, 60), "Reset")) Start();
+        if (GUI.Button(new Rect(900, 650, 100, 60), "Reset")) Start();
 
         GUIStyle style = new GUIStyle();
         style.fontSize = 30;
@@ -22,9 +22,9 @@ public class Main :MonoBehaviour {
         style.fontStyle = FontStyle.BoldAndItalic;
         style.normal.textColor = Color.red;
 
-        if (win == 1) GUI.Label(new Rect(0, 180, 100, 100), "Player1 WIN", style);
-        else if (win == 2) GUI.Label(new Rect(0, 180, 100, 100), "Player2 WIN", style);
-        else if (win == 3) GUI.Label(new Rect(0, 180, 100, 100), "TIE", style);
+        if (win == 1) GUI.Label(new Rect(900, 180, 100, 100), "Player1 WIN", style);
+        else if (win == 2) GUI.Label(new Rect(900, 180, 100, 100), "Player2 WIN", style);
+        else if (win == 3) GUI.Label(new Rect(900, 180, 100, 100), "TIE", style);
 
         for (int i = 0; i < 3; ++i) {
             for (int j = 0; j < 3; ++j) {
