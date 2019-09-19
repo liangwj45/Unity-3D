@@ -84,17 +84,19 @@
 
 ### 太阳系
 
+项目地址：<https://github.com/liangwj45/Unity-3D/tree/master/HW3/%E5%A4%AA%E9%98%B3%E7%B3%BB>
+
+视频链接：<https://www.bilibili.com/video/av68259514>
+
 博客地址：
 
-视频链接：
-
-![](./img/solar.png)
+![](./太阳系/img/solar.png)
 
 ### 牧师与魔鬼
 
 博客地址：
 
-![](./img/solar.png)
+![](./牧师与魔鬼/img/devil.png)
 
 
 

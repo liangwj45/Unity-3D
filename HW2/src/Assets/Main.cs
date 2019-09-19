@@ -28,8 +28,8 @@ public class Main :MonoBehaviour {
 
         for (int i = 0; i < 3; ++i) {
             for (int j = 0; j < 3; ++j) {
-                if (map[i, j] == 1) GUI.Button(new Rect(i * 100 + 0, j * 100 + 300, 100, 100), "O", style: style);
-                else if (map[i, j] == -1) GUI.Button(new Rect(i * 100 + 0, j * 100 + 300, 100, 100), "X", style: style);
+                if (map[i, j] == 1) GUI.Button(new Rect(i * 100 + 0, j * 100 + 300, 100, 100), "O", style);
+                else if (map[i, j] == -1) GUI.Button(new Rect(i * 100 + 0, j * 100 + 300, 100, 100), "X", style);
                 if (GUI.Button(new Rect(i * 100 + 0, j * 100 + 300, 100, 100), "")) {
                     if (win > 0) return;
                     if (System.Math.Abs((check[0, i] += turn)) == 3) win = turn > 0 ? 1 : 2;
