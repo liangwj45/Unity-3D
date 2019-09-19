@@ -1,8 +1,8 @@
 # 太阳系
 
-项目地址：
+项目地址：<https://github.com/liangwj45/Unity-3D/tree/master/HW3/%E5%A4%AA%E9%98%B3%E7%B3%BB>
 
-视频链接：
+视频链接：<https://www.bilibili.com/video/av68259514>
 
 ### 添加对象与贴图
 
