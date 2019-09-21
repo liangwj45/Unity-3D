@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace PreistDevil {
-    public interface IUserAction {
+    public interface IUserActionController {
         void MoveBoat();
-        void ObjectIsClicked(IObject obj);
+        void UpDownBoat(GameObject obj);
         void Restart();
     }
 }

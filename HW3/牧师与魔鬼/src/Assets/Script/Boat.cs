@@ -3,32 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace PreistDevil {
-    public class Boat : IObject{
-        public GameObject boat;
-        public Vector3 location;
+    public class Boat :IObject {
+        public GameObject gameObject;
+        public Vector3 position;
         public Vector3[] positions;
         public bool[] occupied;
         public int state;
         public Move moveComponent;
 
-        public Boat(GameObject obj, ObjectType type) {
-            boat = obj;
-            location = new Vector3(2.1f, 0.55f, 0);
-            SetPosition(location);
-            SetScale(new Vector3(1.4f, 0.3f, 1));
+        public Boat(GameObject obj, string name) {
+            gameObject = obj;
+            gameObject.name = name;
             positions = new Vector3[2];
             occupied = new bool[2];
             state = 1;
             Init();
-            moveComponent = boat.AddComponent(typeof(Move)) as Move;
+            moveComponent = gameObject.AddComponent(typeof(Move)) as Move;
+            gameObject.AddComponent(typeof(ClickGUI));
         }
 
         public void Init() {
             for (int i = 0; i < 2; ++i) {
-                positions[i] = new Vector3(location.x -0.3f * state +0.6f*i *state,  0.9f, 0); 
+                positions[i] = new Vector3(position.x - 0.3f * state + 0.6f * i * state, 0.9f, 0);
                 occupied[i] = false;
             }
-            SetPosition(location);
+            SetPosition(position);
             state = 1;
         }
 
@@ -55,8 +54,8 @@ namespace PreistDevil {
 
         public void MoveBoat() {
             state = -state;
-            Vector3 destination = location;
-            destination.x = location.x * state;
+            Vector3 destination = position;
+            destination.x = position.x * state;
             moveComponent.move = 1;
             moveComponent.SetDestination(destination);
         }
@@ -70,14 +69,14 @@ namespace PreistDevil {
         }
 
         public void SetPosition(Vector3 position) {
-            boat.transform.position = position;
+            gameObject.transform.position = position;
+            if (this.position == new Vector3(0, 0, 0)) {
+                this.position = position;
+            }
         }
 
         public void SetScale(Vector3 scale) {
-            boat.transform.localScale = scale;
-        }
-        public ObjectType GetObjectType() {
-            return ObjectType.BOAT;
+            gameObject.transform.localScale = scale;
         }
     }
 }

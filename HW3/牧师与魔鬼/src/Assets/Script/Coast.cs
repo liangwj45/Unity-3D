@@ -2,19 +2,16 @@
 
 namespace PreistDevil {
     public class Coast :IObject {
-        public GameObject coast;
+        public GameObject gameObject;
         public Vector3[] positions;
         public bool[] occupied;
         public int state;
 
         public Coast(GameObject obj, string side) {
+            gameObject = obj;
             state = side == "left" ? -1 : 1;
-            coast = obj;
-            SetPosition(new Vector3(4.7f * state, 0.5f, 0));
-            SetScale(new Vector3(3.8f, 1, 1));
             positions = new Vector3[6];
             occupied = new bool[6];
-            Init();
         }
 
         public void Init() {
@@ -46,14 +43,11 @@ namespace PreistDevil {
         }
 
         public void SetPosition(Vector3 position) {
-            coast.transform.position = position;
+            gameObject.transform.position = position;
         }
 
         public void SetScale(Vector3 scale) {
-            coast.transform.localScale = scale;
-        }
-        public ObjectType GetObjectType() {
-            return ObjectType.COAST;
+            gameObject.transform.localScale = scale;
         }
     }
 }

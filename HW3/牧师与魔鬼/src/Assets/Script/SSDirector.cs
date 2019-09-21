@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace PreistDevil {
     public class SSDirector {
+
         private static SSDirector _instance;
 
         public ISceneController currentScenceController { get; set; }

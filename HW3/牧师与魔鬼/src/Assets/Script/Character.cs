@@ -1,27 +1,27 @@
 ﻿using UnityEngine;
 
-
 namespace PreistDevil {
     public class Character :IObject {
-        public GameObject character;
-        public ObjectType type;
-        public Character(GameObject obj, ObjectType type) {
-            character = obj;
-            this.type = type;
-            SetScale(new Vector3(0.4f, 0.4f, 0.4f));
-            character.AddComponent(typeof(Move));
+        public GameObject gameObject;
+        public Vector3 position;
+        public Character(GameObject obj, string name) {
+            gameObject = obj;
+            gameObject.name = name;
         }
 
         public void SetPosition(Vector3 position) {
-            character.transform.position = position;
+            gameObject.transform.position = position;
+            if (this.position == new Vector3(0, 0, 0)) {
+                this.position = position;
+            }
         }
 
         public void SetScale(Vector3 scale) {
-            character.transform.localScale = scale;
+            gameObject.transform.localScale = scale;
         }
 
-        public ObjectType GetObjectType() {
-            return type;
+        public void Init() {
+            SetPosition(position);
         }
     }
 }

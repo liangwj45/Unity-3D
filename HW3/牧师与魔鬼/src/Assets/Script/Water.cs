@@ -4,23 +4,19 @@ using UnityEngine;
 
 namespace PreistDevil {
     public class Water :IObject {
-        public GameObject water;
+        public GameObject gameObject;
         public Water(GameObject obj) {
-            water = obj;
-            SetPosition(new Vector3(0, 0.2f, 0));
-            SetScale(new Vector3(5.6f, 0.4f, 1));
+            gameObject = obj;
         }
 
         public void SetPosition(Vector3 position) {
-            water.transform.position = position;
+            gameObject.transform.position = position;
         }
 
         public void SetScale(Vector3 scale) {
-            water.transform.localScale = scale;
+            gameObject.transform.localScale = scale;
         }
 
-        public ObjectType GetObjectType() {
-            return ObjectType.WATER;
-        }
+        public void Init() { }
     }
 }

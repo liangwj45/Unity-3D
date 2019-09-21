@@ -93,6 +93,8 @@
 
 ### 牧师与魔鬼
 
-博客地址：
+项目地址：<https://github.com/liangwj45/Unity-3D/tree/master/HW3/牧师与魔鬼>
 
-![](./牧师与魔鬼/img/devil.png)
+博客地址：<https://liangwj45.github.io/2019/09/21/Unity3D游戏——牧师与魔鬼/>
+
+![](./牧师与魔鬼/img/preist.png)
