@@ -5,7 +5,7 @@ using UnityEngine;
 namespace PreistDevil {
     public interface IUserActionController {
         void MoveBoat();
-        void UpDownBoat(GameObject obj);
+        void UpDownBoat(Character character);
         void Restart();
     }
 }

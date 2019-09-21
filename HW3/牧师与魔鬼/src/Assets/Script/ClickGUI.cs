@@ -4,7 +4,8 @@ using UnityEngine;
 
 namespace PreistDevil {
     public class ClickGUI :MonoBehaviour {
-        IUserActionController userActionController;
+        public IUserActionController userActionController;
+        public Character character;
 
         void Start() {
             userActionController = SSDirector.getInstance().currentScenceController as IUserActionController;
@@ -14,7 +15,7 @@ namespace PreistDevil {
             if (gameObject.name == "boat") {
                 userActionController.MoveBoat();
             } else {
-                userActionController.UpDownBoat(gameObject);
+                userActionController.UpDownBoat(character);
             }
         }
     }
