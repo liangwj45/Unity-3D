@@ -25,16 +25,16 @@
   // 缩放
   public class Zooming :MonoBehaviour {
       void Update() {
-          float x = Input.GetAxis("Horizontal") * Time.deltaTime;           
+          float x = Input.GetAxis("Horizontal") * Time.deltaTime;
           float z = Input.GetAxis("Vertical") * Time.deltaTime;
           this.transform.localScale += new Vector3(x, 0, z);
       }
   }
   ```
 
-- 请用三种方法以上方法，实现物体的抛物线运动。（如，修改Transform属性，使用向量Vector3的方法…）
+- 请用三种方法以上方法，实现物体的抛物线运动。（如，修改 Transform 属性，使用向量 Vector3 的方法…）
 
-  - 方法一：直接改变物体的Position：$Y= X^2$
+  - 方法一：直接改变物体的 Position：$Y= X^2$
 
     ```c#
     public class Move :MonoBehaviour {
@@ -49,7 +49,7 @@
     }
     ```
 
-  - 方法二：通过给定X轴方向的移动速度及Y轴方向上的初始加速度，及初始速度。
+  - 方法二：通过给定 X 轴方向的移动速度及 Y 轴方向上的初始加速度，及初始速度。
 
     ```c#
     public class Move :MonoBehaviour {
@@ -79,7 +79,6 @@
     }
     ```
 
-
 ## 2、编程实践
 
 ### 太阳系
@@ -88,7 +87,7 @@
 
 视频链接：<https://www.bilibili.com/video/av68259514>
 
-博客地址：
+博客地址：<https://liangwj45.github.io/2019/09/21/Unity3D制作太阳系动画/>
 
 ![](./太阳系/img/solar.png)
 
@@ -97,6 +96,3 @@
 博客地址：
 
 ![](./牧师与魔鬼/img/devil.png)
-
-
-

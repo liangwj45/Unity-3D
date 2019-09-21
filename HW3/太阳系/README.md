@@ -4,6 +4,8 @@
 
 视频链接：<https://www.bilibili.com/video/av68259514>
 
+博客地址：<https://liangwj45.github.io/2019/09/21/Unity3D制作太阳系动画/>
+
 ### 添加对象与贴图
 
 添加太阳和各行星的对象，并为其添加样式，添加背景。
@@ -122,7 +124,6 @@ public class Main :MonoBehaviour {
 }
 
 ```
-
 
 ### 运行程序
 
