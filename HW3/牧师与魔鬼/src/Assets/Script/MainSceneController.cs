@@ -35,48 +35,105 @@ namespace PreistDevil {
             coastR.Init();
 
             boat = new Boat(Instantiate(Resources.Load("Prefabs/Boat")) as GameObject, "boat");
-            boat.gameObject.AddComponent(typeof(Move));
+            boat.move = boat.gameObject.AddComponent(typeof(Move)) as Move;
             boat.gameObject.AddComponent(typeof(ClickGUI));
             boat.SetPosition(new Vector3(2.1f, 0.55f, 0));
             boat.SetScale(new Vector3(1.4f, 0.3f, 1));
             boat.Init();
 
-            for (int i = 0;i < 3; ++i) {
+            for (int i = 0; i < 3; ++i) {
                 preists[i] = new Character(Instantiate(Resources.Load("Prefabs/Preist")) as GameObject, "preist");
-                preists[i].gameObject.AddComponent(typeof(Move));
-                preists[i].gameObject.AddComponent(typeof(ClickGUI));
+                preists[i].move = preists[i].gameObject.AddComponent(typeof(Move)) as Move;
+                ClickGUI clickGUI = preists[i].gameObject.AddComponent(typeof(ClickGUI)) as ClickGUI;
+                clickGUI.character = preists[i];
+                preists[i].clickGUI = clickGUI;
+                preists[i].clickGUI.character = preists[i];
                 preists[i].SetPosition(coastR.GetEmptyPosition());
                 preists[i].SetScale(new Vector3(0.4f, 0.4f, 0.4f));
             }
 
             for (int i = 0; i < 3; ++i) {
                 devils[i] = new Character(Instantiate(Resources.Load("Prefabs/Devil")) as GameObject, "devil");
-                devils[i].gameObject.AddComponent(typeof(Move));
-                devils[i].gameObject.AddComponent(typeof(ClickGUI));
+                devils[i].move = devils[i].gameObject.AddComponent(typeof(Move)) as Move;
+                ClickGUI clickGUI = devils[i].gameObject.AddComponent(typeof(ClickGUI)) as ClickGUI;
+                clickGUI.character = preists[i];
+                devils[i].clickGUI = clickGUI;
+                devils[i].clickGUI.character = devils[i];
                 devils[i].SetPosition(coastR.GetEmptyPosition());
                 devils[i].SetScale(new Vector3(0.4f, 0.4f, 0.4f));
             }
         }
 
-        public void UpDownBoat(GameObject obj) {
-            gameGUI.gameState = Check();
+        public void UpDownBoat(Character character) {
+            Vector3 position = new Vector3(0, 0, 0);
+            if (character.state == CharacterState.OnBoat) {
+                boat.ReleasePosition(character.gameObject.transform.position);
+                character.gameObject.transform.parent = null;
+                if (boat.state == BoatState.Right) {
+                    position = coastR.GetEmptyPosition();
+                    character.state = CharacterState.OnCoastR;
+                } else {
+                    position = coastL.GetEmptyPosition();
+                    character.state = CharacterState.OnCoastL;
+                }
+                character.MoveToPosition(position);
+            } else if (character.state == CharacterState.OnCoastL && boat.state == BoatState.Left) {
+                position = boat.GetEmptyPosition();
+                if (position == new Vector3(0, 0, 0)) return;
+                coastL.ReleasePosition(character.gameObject.transform.position);
+                character.MoveToPosition(position);
+                character.gameObject.transform.parent = boat.gameObject.transform;
+                character.state = CharacterState.OnBoat;
+            } else if (character.state == CharacterState.OnCoastR && boat.state == BoatState.Right) {
+                position = boat.GetEmptyPosition();
+                if (position == new Vector3(0, 0, 0)) return;
+                coastR.ReleasePosition(character.gameObject.transform.position);
+                character.MoveToPosition(position);
+                character.gameObject.transform.parent = boat.gameObject.transform;
+                character.state = CharacterState.OnBoat;
+            }
         }
 
         public void MoveBoat() {
-
+            if (boat.HasPassager()) {
+                boat.state = boat.state == BoatState.Left ? BoatState.Right : BoatState.Left;
+                Vector3 destination = boat.gameObject.transform.position;
+                destination.x = -destination.x;
+                boat.move.SetDestination(destination);
+            }
+            gameGUI.gameState = Check();
         }
 
         public void Restart() {
             boat.Init();
-            for (int i = 0; i< 3; ++i) {
+            for (int i = 0; i < 3; ++i) {
                 preists[i].Init();
                 devils[i].Init();
             }
             gameGUI.Restart();
         }
 
-        public int Check() {
-            return 0;
+        public GameState Check() {
+            int preist_left = 0, preist_right = 0, devil_left = 0, devil_right = 0, win = 0;
+            for (int i = 0; i < 3; ++i) {
+                if (preists[i].state == CharacterState.OnCoastL) {
+                    preist_left++; win++;
+                } else if (preists[i].state == CharacterState.OnBoat && boat.state == BoatState.Left) {
+                    preist_left++;
+                } else {
+                    preist_right++;
+                }
+                if (devils[i].state == CharacterState.OnCoastL) {
+                    devil_left++; win++;
+                } else if (devils[i].state == CharacterState.OnBoat && boat.state == BoatState.Left) {
+                    devil_left++;
+                } else {
+                    devil_right++;
+                }
+            }
+            if (win == 6) return GameState.Win;
+            if ((preist_left < devil_left && preist_left != 0) || (preist_right < devil_right && preist_right != 0)) return GameState.Gameover;
+            return GameState.Continue;
         }
     }
 }

@@ -34,7 +34,7 @@ namespace PreistDevil {
 
         public bool ReleasePosition(Vector3 position) {
             for (int i = 0; i < 6; ++i) {
-                if (positions[i] == position && occupied[i]) {
+                if (positions[i] == position) {
                     occupied[i] = false;
                     return true;
                 }
