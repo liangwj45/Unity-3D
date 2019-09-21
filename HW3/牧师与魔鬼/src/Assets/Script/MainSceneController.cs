@@ -27,12 +27,12 @@ namespace PreistDevil {
             coastL = new Coast(Instantiate(Resources.Load("Prefabs/Coast")) as GameObject, "left");
             coastL.SetPosition(new Vector3(-4.7f, 0.5f, 0));
             coastL.SetScale(new Vector3(3.8f, 1, 1));
-            coastL.Init();
+            coastL.Init(false);
 
             coastR = new Coast(Instantiate(Resources.Load("Prefabs/Coast")) as GameObject, "right");
             coastR.SetPosition(new Vector3(4.7f, 0.5f, 0));
             coastR.SetScale(new Vector3(3.8f, 1, 1));
-            coastR.Init();
+            coastR.Init(false);
 
             boat = new Boat(Instantiate(Resources.Load("Prefabs/Boat")) as GameObject, "boat");
             boat.move = boat.gameObject.AddComponent(typeof(Move)) as Move;
@@ -77,21 +77,18 @@ namespace PreistDevil {
                     character.state = CharacterState.OnCoastL;
                 }
                 character.MoveToPosition(position);
-            } else if (character.state == CharacterState.OnCoastL && boat.state == BoatState.Left) {
-                position = boat.GetEmptyPosition();
-                if (position == new Vector3(0, 0, 0)) return;
-                coastL.ReleasePosition(character.gameObject.transform.position);
-                character.MoveToPosition(position);
-                character.gameObject.transform.parent = boat.gameObject.transform;
-                character.state = CharacterState.OnBoat;
-            } else if (character.state == CharacterState.OnCoastR && boat.state == BoatState.Right) {
-                position = boat.GetEmptyPosition();
-                if (position == new Vector3(0, 0, 0)) return;
-                coastR.ReleasePosition(character.gameObject.transform.position);
-                character.MoveToPosition(position);
-                character.gameObject.transform.parent = boat.gameObject.transform;
-                character.state = CharacterState.OnBoat;
+            } else {
+                if (boat.Full()) return;
+                if ((character.state == CharacterState.OnCoastL && boat.state == BoatState.Left) || (character.state == CharacterState.OnCoastR && boat.state == BoatState.Right)) {
+                    position = boat.GetEmptyPosition();
+                    character.MoveToPosition(position);
+                    character.gameObject.transform.parent = boat.gameObject.transform;
+                    character.state = CharacterState.OnBoat;
+                    if (boat.state == BoatState.Left) coastL.ReleasePosition(character.gameObject.transform.position);
+                    else coastR.ReleasePosition(character.gameObject.transform.position);
+                }
             }
+            gameGUI.gameState = Check();
         }
 
         public void MoveBoat() {
@@ -105,12 +102,14 @@ namespace PreistDevil {
         }
 
         public void Restart() {
-            boat.Init();
+            gameGUI.Restart();
+            coastL.Init(false);
+            coastR.Init(true);
             for (int i = 0; i < 3; ++i) {
                 preists[i].Init();
                 devils[i].Init();
             }
-            gameGUI.Restart();
+            boat.Init();
         }
 
         public GameState Check() {

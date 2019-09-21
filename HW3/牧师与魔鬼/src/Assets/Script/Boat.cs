@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PreistDevil {
     public enum BoatState {
@@ -43,6 +41,10 @@ namespace PreistDevil {
             } else {
                 occupied[1] = false;
             }
+        }
+
+        public bool Full() {
+            return occupied[0] && occupied[1];
         }
 
         public bool HasPassager() {

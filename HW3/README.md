@@ -87,7 +87,7 @@
 
 视频链接：<https://www.bilibili.com/video/av68259514>
 
-博客地址：<https://liangwj45.github.io/2019/09/21/Unity3D制作太阳系动画/>
+博客链接：<https://liangwj45.github.io/2019/09/21/Unity3D制作太阳系动画/>
 
 ![](./太阳系/img/solar.png)
 
@@ -95,6 +95,8 @@
 
 项目地址：<https://github.com/liangwj45/Unity-3D/tree/master/HW3/牧师与魔鬼>
 
-博客地址：<https://liangwj45.github.io/2019/09/21/Unity3D游戏——牧师与魔鬼/>
+视频链接：<https://www.bilibili.com/video/av68569408/>
+
+博客链接：<https://liangwj45.github.io/2019/09/22/Unity3D制作牧师与魔鬼游戏/>
 
 ![](./牧师与魔鬼/img/preist.png)

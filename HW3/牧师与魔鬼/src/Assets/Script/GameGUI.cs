@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PreistDevil {
-    public enum GameState : uint {
+    public enum GameState :uint {
         Continue, Win, Gameover
     }
     public class GameGUI :MonoBehaviour {
@@ -20,17 +18,11 @@ namespace PreistDevil {
         }
 
         public void OnGUI() {
-            if (gameState == GameState.Gameover) {
-                GUI.Label(new Rect(Screen.width / 2 - 30, Screen.height / 4, 100, 50), "Gameover!");
-                if (GUI.Button(new Rect(Screen.width / 2 - 70, Screen.height / 3, 140, 70), "Restart")) {
-                    gameState = 0;
-                    userActionController.Restart();
-                }
-            } else if (gameState == GameState.Win) {
-                GUI.Label(new Rect(Screen.width / 2 - 30, Screen.height / 4, 100, 50), "Win!");
-                if (GUI.Button(new Rect(Screen.width / 2 - 70, Screen.height / 3, 140, 70), "Restart")) {
-                    userActionController.Restart();
-                }
+            if (gameState == GameState.Continue) return;
+            string msg = gameState == GameState.Gameover ? "Gameover!" : "Win!";
+            GUI.Label(new Rect(Screen.width / 2 - 30, Screen.height / 2 + 15, 100, 50), msg);
+            if (GUI.Button(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 140, 70), "Restart")) {
+                userActionController.Restart();
             }
         }
     }

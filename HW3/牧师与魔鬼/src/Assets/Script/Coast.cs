@@ -12,12 +12,14 @@ namespace PreistDevil {
             state = side == "left" ? -1 : 1;
             positions = new Vector3[6];
             occupied = new bool[6];
-        }
-
-        public void Init() {
             for (int i = 0; i < 6; ++i) {
                 positions[i] = new Vector3(state * (3.4f + 0.6f * i), 1.2f, 0);
-                occupied[i] = false;
+            }
+        }
+
+        public void Init(bool occupied) {
+            for (int i = 0; i < 6; ++i) {
+                this.occupied[i] = occupied;
             }
         }
 
@@ -28,7 +30,6 @@ namespace PreistDevil {
                     return positions[i];
                 }
             }
-            // TODO: throw error
             return new Vector3(0, 0, 0);
         }
 

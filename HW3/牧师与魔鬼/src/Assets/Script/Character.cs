@@ -31,6 +31,7 @@ namespace PreistDevil {
 
         public void Init() {
             gameObject.transform.parent = null;
+            state = CharacterState.OnCoastR;
             SetPosition(position);
         }
 
