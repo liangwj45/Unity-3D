@@ -2,10 +2,6 @@
 
 视频链接：<https://www.bilibili.com/video/av70393139/>
 
-项目链接：
-
-博客链接：
-
 ## 程序要求
 
 - 将游戏中对象的动作分离出来，实现动作和物体属性的分离
@@ -13,7 +9,7 @@
 
 ## 游戏截图
 
-![preist](.\img\preist.png)
+![preist](./img/preist.png)
 
 ## 编写程序
 
@@ -256,5 +252,4 @@ public class Judger :MonoBehaviour {
 
 ### 其他修改
 
-修改原有的Character类和Boat类，去除原来的Move对象，并修改场景控制类，修改对象移动以及处理游戏状态改变的部分代码。
-
+修改原有的 Character 类和 Boat 类，去除原来的 Move 对象，并修改场景控制类，修改对象移动以及处理游戏状态改变的部分代码。
