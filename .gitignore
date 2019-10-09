@@ -5,3 +5,6 @@ Temp/
 *.sln
 UnityPackageManager/
 .obj/
+Packages/
+obj/
+Logs/
