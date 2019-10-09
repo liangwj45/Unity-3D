@@ -1,0 +1,2 @@
+D:\Files\code\Unity-3D\HW5\Saucer\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+D:\Files\code\Unity-3D\HW5\Saucer\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
