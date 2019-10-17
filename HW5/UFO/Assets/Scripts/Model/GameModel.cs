@@ -5,6 +5,7 @@ using System;
 
 public enum SceneState { Waiting, Shooting }
 public enum GameState { Running, Lose, Win }
+
 public class GameModel
 {
 
@@ -64,9 +65,9 @@ public class GameModel
     onRefresh.Invoke(this, EventArgs.Empty);
   }
 
-  public void SubScore()
+  public void SubScore(int score)
   {
-    this.score -= 8 * currentRound;
+    this.score -= score;
     if (score < 0)
     {
       gameState = GameState.Lose;

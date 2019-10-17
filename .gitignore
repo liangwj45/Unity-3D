@@ -1,10 +1,8 @@
 .vs
-Library/
 Temp/
 *.csproj
 *.sln
 UnityPackageManager/
 .obj/
-Packages/
 obj/
 Logs/
