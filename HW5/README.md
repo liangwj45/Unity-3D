@@ -179,7 +179,7 @@ public class UFOFactory {
 }
 ```
 
-### 游戏模型类（SSActionManager）
+### 游戏模型类（GameModel）
 
 规定游戏状态如何进行改变。
 
