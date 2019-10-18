@@ -24,8 +24,6 @@
 
 ### 项目的目录结构
 
-
-
 ![](./img/struct.png)
 
 ### Model
