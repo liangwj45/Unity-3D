@@ -16,7 +16,7 @@
 
 ## 游戏截图
 
-![UFO](./img/UFO.png)
+![UFO](./img/ufo.png)
 
 ## 编写程序
 
