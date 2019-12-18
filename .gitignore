@@ -1,0 +1,10 @@
+.vs
+Temp/
+*.csproj
+*.sln
+UnityPackageManager/
+.obj/
+obj/
+Logs/
+Library/
+Packages/
