@@ -68,11 +68,13 @@
 
 添加完证书之后点击 ImageTarget 对象，在其 Inspector 面板中修改 Image Target Behaviour 组件的属性如下。然后在该对象下绑定另一个素材对象，即在识别到该图像时会将其展示出来。
 
-<img src="./img/13.png" style="zoom: 80%;" />
+<img src="./img/12.png" style="zoom: 80%;" />
 
 ### 添加虚拟按钮
 
 点击 ImageTarget 对象，并在其 Inspector 面板中的 Image Target Behaviour 组件下点击 Advanced，展开后看到 Add Virtual Button 按钮，点击该按钮即可添加虚拟按钮。这里添加了两个虚拟按钮，并为每个虚拟按钮分别添加了一个等尺寸的 Plane 对象，用于对虚拟按钮进行渲染。Materials 可以采用原按钮的 Materials。
+
+<img src="./img/13.png" style="zoom: 80%;" />
 
 <img src="./img/14.png" style="zoom: 80%;" />
 
