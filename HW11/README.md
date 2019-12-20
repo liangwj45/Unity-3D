@@ -74,6 +74,11 @@
 
 点击 ImageTarget 对象，并在其 Inspector 面板中的 Image Target Behaviour 组件下点击 Advanced，展开后看到 Add Virtual Button 按钮，点击该按钮即可添加虚拟按钮。这里添加了两个虚拟按钮，并为每个虚拟按钮分别添加了一个等尺寸的 Plane 对象，用于对虚拟按钮进行渲染。Materials 可以采用原按钮的 Materials。
 
+注意事项：
+
+1. 虚拟按钮本身是不会显示的，需要将额外的带 mesh renderer 组件的对象绑定在按钮对象上，按钮才会显示出来。
+2. 虚拟按钮的触发是通过特定区域遮挡面积来进行判断的，如果发现按钮无法被触发，可能需要调整下按钮的大小以及按钮的位置，如果按钮太接近识别图的边缘，也可能会导致无法被触发。
+
 <img src="./img/13.png" style="zoom: 80%;" />
 
 <img src="./img/14.png" style="zoom: 80%;" />
