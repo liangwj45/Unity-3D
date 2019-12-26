@@ -1,6 +1,6 @@
 # 智能版牧师与魔鬼
 
-视频连接: https://www.bilibili.com/video/av78385925/
+视频连接: <https://www.bilibili.com/video/av78385925/>
 
 ## 游戏截图
 

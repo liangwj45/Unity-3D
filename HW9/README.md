@@ -1,6 +1,6 @@
 # 公告牌
 
-视频链接： <https://member.bilibili.com/v2#/upload-manager/article>
+视频链接： <https://www.bilibili.com/video/av76382561/>
 
 ## 游戏设计要求
 
@@ -112,6 +112,3 @@ public class ButtonClick : MonoBehaviour {
     }
 }
 ```
-
-
-

@@ -1,6 +1,6 @@
 # AR技术的简单尝试
 
-视频地址： https://www.bilibili.com/video/av79699172/ 
+视频地址： <https://www.bilibili.com/video/av79699172/>
 
 ## 游戏截图
 
@@ -138,7 +138,5 @@ public class VirtualButtonEventHandler : MonoBehaviour, IVirtualButtonEventHandl
 然后就大功告成了。点击开始按钮，当摄像头识别到特征图时，便会出现可爱的小猫了。
 
 ## 运行结果
-
-视频地址： https://www.bilibili.com/video/av79699172/ 
 
 <img src="./img/18.png"  />

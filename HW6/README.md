@@ -1,4 +1,4 @@
-# HW5：鼠标打飞碟游戏（物理版）
+# HW6：鼠标打飞碟游戏（物理版）
 
 视频链接：<https://www.bilibili.com/video/av71602404/>
 
